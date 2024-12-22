@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2020 Twitter Hack Case Study</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.2s ease-in-out;
+        }
+        .header {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #34495e;
+            margin-top: 20px;
+        }
+        .section-content {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+            margin-top: 10px;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            background-color: #f0f8ff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .timeline-item:hover {
+            transform: translateX(10px);
+            background-color: #e1f2fc;
+        }
+        .timeline-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .timeline-item img:hover {
+            transform: scale(1.1);
+        }
+        .impact-section {
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .impact-section p {
+            font-size: 18px;
+            color: #555;
+        }
+        .ai-prevention {
+            background-color: #f7f8fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .ai-prevention p {
+            font-size: 18px;
+            color: #555;
+        }
+        .section-title2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2980b9;
+            margin-top: 20px;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>2020 Twitter Hack Case</h1>
+        <p>Analyzing the Attack Process, Impact, and AI Prevention Strategies</p>
+    </div>
+
+    <!-- Phishing Attack Overview -->
+    <div class="section-title">Phishing Attack Overview</div>
+    <div class="section-content">
+        In July 2020, a significant phishing attack targeted Twitter, one of the world's leading social media platforms. The attackers used social engineering tactics to trick Twitter employees into providing credentials for internal tools. These tools were then exploited to hijack high-profile accounts such as Elon Musk, Barack Obama, and Joe Biden. The attackers took advantage of these high-visibility accounts to promote a Bitcoin scam, causing reputational damage to Twitter.
+    </div>
+
+    <!-- Attack Process Timeline -->
+    <div class="section-title">Attack Process</div>
+    <div class="timeline">
+        <div class="timeline-item">
+            <img src="https://img.icons8.com/ios/452/email.png" alt="Phishing Email">
+            <div>
+                <strong>Step 1: Phishing Emails</strong>
+                <p>Phishing emails were sent to Twitter employees, using deceptive tactics to steal login credentials for internal systems.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <img src="https://img.icons8.com/ios/452/lock.png" alt="Account Compromise">
+            <div>
+                <strong>Step 2: Account Compromise</strong>
+                <p>The attackers used the stolen credentials to access internal tools, gaining control over high-profile Twitter accounts.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <img src="https://img.icons8.com/ios/452/bitcoin.png" alt="Bitcoin Scam">
+            <div>
+                <strong>Step 3: Bitcoin Scam</strong>
+                <p>The compromised accounts were used to post fraudulent tweets promoting a Bitcoin scam that aimed to steal funds from unsuspecting followers.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <img src="https://img.icons8.com/ios/452/search.png" alt="Investigation">
+            <div>
+                <strong>Step 4: Investigation</strong>
+                <p>Twitter quickly disabled the compromised accounts and launched an internal investigation to understand the full scope of the breach and prevent further incidents.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Financial and Societal Impact Section -->
+    <div class="section-title">Financial and Societal Impact</div>
+    <div class="impact-section">
+        <p><strong>Financial Impact:</strong> The immediate financial loss from the Bitcoin scam was around $120,000. However, the long-term financial implications are harder to quantify, with potential damage to Twitter's reputation and user trust, which could affect its stock value and customer base.</p>
+        <p><strong>Societal Impact:</strong> The attack raised significant concerns about the security of social media platforms. It highlighted the risks that can arise when attackers exploit vulnerabilities in internal systems. The breach eroded public trust in Twitter's ability to protect users' data and privacy, prompting wider discussions about the need for better cybersecurity in the social media industry.</p>
+    </div>
+
+    <!-- AI-driven Prevention Strategy Section -->
+    <div class="section-title">AI in Phishing Prevention</div>
+    <div class="ai-prevention">
+        <p>AI can play a critical role in preventing phishing attacks like the one that occurred in 2020. By utilizing advanced machine learning algorithms, social media platforms can analyze user behavior and detect anomalies that might indicate a phishing attack. AI systems can identify suspicious patterns, such as multiple failed login attempts or unusual account activity, and immediately trigger alerts or block unauthorized access.</p>
+        <p>Natural Language Processing (NLP) can be employed to analyze incoming emails and identify phishing attempts based on language patterns commonly found in malicious communications. AI can also be used to monitor internal systems for unusual access requests, helping to prevent unauthorized use of privileged tools and mitigating potential breaches before they occur.</p>
+    </div>
+
+    <!-- Conclusion -->
+    <div class="section-title2">Conclusion</div>
+    <div class="section-content">
+        The 2020 Twitter hack was a wake-up call for social media platforms, emphasizing the need for stronger security measures to protect user privacy and prevent similar attacks in the future. The financial and societal impacts of the attack have been far-reaching, affecting both Twitter's reputation and public trust in the platform. Leveraging AI-driven security systems could significantly enhance the ability to prevent phishing attacks, safeguarding platforms and their users from future breaches.
+    </div>
+</div>
+
+</body>
+</html>

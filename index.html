@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Engineering Terminal</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1e1e1e;
+            color: #00ff00;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .terminal {
+            background-color: #151515;
+            border-radius: 10px;
+            padding: 20px;
+            width: 90%;
+            max-width: 700px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2d2d2d;
+            border-radius: 10px 10px 0 0;
+            padding: 10px 15px;
+            color: #fff;
+        }
+
+        .terminal-header .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .terminal-header .buttons div {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-header .close {
+            background-color: #ff5f57;
+        }
+
+        .terminal-header .minimize {
+            background-color: #ffbd2e;
+        }
+
+        .terminal-header .maximize {
+            background-color: #28c840;
+        }
+
+        .terminal-content {
+            margin-top: 10px;
+            text-align: left;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+
+        .command {
+            color: #ff5f57;
+        }
+
+        .output {
+            color: #00ff00;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: #00ff00;
+            animation: blink 0.7s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            50.1%, 100% { opacity: 0; }
+        }
+
+        input {
+            background-color: #151515;
+            border: none;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #00ff00;
+            padding: 10px;
+            width: 200px;
+            margin-top: 20px;
+            visibility: hidden;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .footer {
+            margin-top: 20px;
+            color: #00ff00;
+            font-size: 1rem;
+        }
+
+        .name {
+            color: #ff0000; /* Red color for your name */
+        }
+
+        .user {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="buttons">
+                <div class="close"></div>
+                <div class="minimize"></div>
+                <div class="maximize"></div>
+            </div>
+            <span>Social Engineering Terminal</span>
+        </div>
+        <div class="terminal-content" id="terminal-content"></div>
+        <input type="text" id="userInput" placeholder="Enter command below" autofocus />
+        <div class="footer">Created by <span class="name">@chivxp (Ahmed Abdullatif)</span></div>
+    </div>
+
+    <script>
+        const messages = [
+            "Welcome to the Social Engineering terminal.",
+            "You can explore famous social engineering attacks:",
+            "1. Twitter Phishing Case (IMAP) - An example of a phishing attack targeting Twitter users.",
+            "2. Nigerian Prince Scam - A classic example of a scam email asking for money transfer.",
+            "--------------------------------------------------",
+            "Enter the corresponding number to proceed."
+        ];
+
+        const terminalContent = document.getElementById("terminal-content");
+        const userInput = document.getElementById("userInput");
+        const typingSpeed = 30; // Faster typing speed
+
+        // Function to type messages letter by letter
+        async function typeMessages() {
+            for (let i = 0; i < messages.length; i++) {
+                await typeLine(messages[i], i, 0);
+            }
+            userInput.style.visibility = "visible"; // Show input field after typing
+        }
+
+        // Function to type a single line
+        function typeLine(line, messageIndex, charIndex) {
+            return new Promise(resolve => {
+                const div = document.createElement("div");
+                div.innerHTML = `<span class="command">root@kali:</span><span class="user">~$ </span><span class="output"></span><span class='cursor'></span>`;
+                terminalContent.appendChild(div);
+
+                const output = div.querySelector(".output");
+                const cursor = div.querySelector(".cursor");
+
+                let i = charIndex;
+                const interval = setInterval(() => {
+                    if (i < line.length) {
+                        output.textContent += line[i];
+                        i++;
+                    } else {
+                        clearInterval(interval);
+                        cursor.style.display = "none";
+                        resolve();
+                    }
+                }, typingSpeed);
+            });
+        }
+
+        // Function to handle user input and redirect based on choice
+        userInput.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                const choice = userInput.value.trim();
+                if (choice == 1) {
+                    window.open("twitter_case.html", "_blank"); // Twitter Phishing Case
+                } else if (choice == 2) {
+                    window.open("Niger_pri.html", "_blank"); // Nigerian Prince Scam
+                } else {
+                    alert("Invalid selection. Please enter a number between 1 and 2.");
+                }
+            }
+        });
+
+        // Start typing messages
+        typeMessages();
+    </script>
+</body>
+</html>
